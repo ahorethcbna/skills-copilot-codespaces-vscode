@@ -1,97 +1,31 @@
 // create web server
-var express = require('express');
-var app = express();
-var fs = require('fs');
-var bodyParser = require('body-parser');
-var path = require('path');
+// 1. import http module
+// 2. create a server
+// 3. listen to a port
+const http = require('http');
 
-// use body parser so we can get info from POST and/or URL parameters
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-
-// set the folder for the views
-app.set('views', path.join(__dirname, 'views'));
-
-// set the folder for the static files
-app.use(express.static(path.join(__dirname, 'public')));
-
-// set the home page
-app.get('/', function(req, res) {
-    res.render('index');
+// 2. create a server
+const server = http.createServer((req, res) => {
+    if (req.url === '/comments') {
+        res.write('Comments page');
+        res.end();
+    } else if (req.url === '/posts') {
+        res.write('Posts page');
+        res.end();
+    } else {
+        res.write('Home page');
+        res.end();
+    }
 });
 
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
+// 3. listen to a port
+server.listen(3000, () => {
+    console.log('Server is running on port 3000');
 });
 
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
-    res.render('comments');
-});
-
-// set the comments page
-app.get('/comments', function(req, res) {
+// node comments.js
+// localhost:3000
+// localhost:3000/comments
+// localhost:3000/posts
+// localhost:3000/anything
+// ctrl + c to stop the server
