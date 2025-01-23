@@ -22,10 +22,3 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
-
-// node comments.js
-// localhost:3000
-// localhost:3000/comments
-// localhost:3000/posts
-// localhost:3000/anything
-// ctrl + c to stop the server
