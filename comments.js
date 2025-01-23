@@ -1,28 +1,97 @@
 // create web server
-// npm install express
-// npm install body-parser
 var express = require('express');
-var bodyParser = require('body-parser');
 var app = express();
-app.use(express.static('public'));
+var fs = require('fs');
+var bodyParser = require('body-parser');
+var path = require('path');
+
+// use body parser so we can get info from POST and/or URL parameters
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
-// create a comments array
-var comments = [];
+// set the view engine to ejs
+app.set('view engine', 'ejs');
 
-// get comments
+// set the folder for the views
+app.set('views', path.join(__dirname, 'views'));
+
+// set the folder for the static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// set the home page
+app.get('/', function(req, res) {
+    res.render('index');
+});
+
+// set the comments page
 app.get('/comments', function(req, res) {
-    res.send(comments);
+    res.render('comments');
 });
 
-// create a comment
-app.post('/comments', function(req, res) {
-    comments.push(req.body);
-    res.send('Comment added');
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
 });
 
-// start the web server
-app.listen(3000, function() {
-    console.log('Server is running on http://localhost:3000');
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
 });
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
+    res.render('comments');
+});
+
+// set the comments page
+app.get('/comments', function(req, res) {
